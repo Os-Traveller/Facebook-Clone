@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Button } from "../../Components/UI/UI";
-import SignupModal from "./SignupModal";
+import { useNavigate } from "react-router-dom";
 
-const Login = () => {
-  const [signUpModalOpen, setSignupModalOpen] = useState(true);
+export const Login = () => {
+  const path = useNavigate();
   return (
     <>
       <main className=" bg-[#F0F2F5] h-screen ">
@@ -18,25 +18,15 @@ const Login = () => {
               <input className="border-2 p-2 rounded-md" type="text" placeholder="Email address or phone number" />
               <input className="border-2 p-2 rounded-md" type="password" placeholder="Password" />
               <Button className="bg-[#166FE5] text-white text-xl font-semibold">Login</Button>
-              <p className="text-center hover:underline text-[#166FE5]">Forgottern password?</p>
+              <p className="text-center hover:underline text-[#166FE5] cursor-pointer">Forgottern password?</p>
               <hr />
-              <Button
-                className="bg-[#36A420] text-white w-fit mx-auto"
-                onClick={(e) => {
-                  e.preventDefault();
-                  console.log("Clicked");
-                  setSignupModalOpen(true);
-                }}
-              >
+              <Button className="bg-[#36A420] text-white w-fit mx-auto" onClick={() => path("/signup")}>
                 Create New Account
               </Button>
             </form>
           </div>
         </section>
       </main>
-      <SignupModal state={(signUpModalOpen, setSignupModalOpen)} />
     </>
   );
 };
-
-export default Login;
