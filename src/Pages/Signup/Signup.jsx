@@ -1,18 +1,20 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Input, Button } from "../../Components/UI/UI";
+import { FcGoogle } from "react-icons/fc";
+import { FaFacebookF } from "react-icons/fa";
 
 export const Signup = () => {
   const path = useNavigate();
   const radioInputClass = "w-full border-[1px] border-[#ccd0d5] py-1 px-3 rounded";
   return (
     <section className="min-h-screen bg-[#F0F2F5] flex justify-center items-center">
-      <div className="w-fit flex flex-col text-center">
-        <h1 className="text-[#1877F2] font-bold text-6xl font-mono mb-10">facebook</h1>
+      <div className="w-fit flex flex-col text-center p-5">
+        <h1 className="text-[#1877F2] font-bold md:text-6xl text-5xl font-mono md:mb-10 mb-5">facebook</h1>
 
         {/* {form Container} */}
         <form className="bg-white p-5 rounded-lg shadow-lg">
-          <h2 className="text-4xl mb-2">Create a new account</h2>
+          <h2 className="md:text-4xl text-2xl mb-2">Create a new account</h2>
           <p className="text-[#606770] mb-4">It's quick and easy</p>
           <hr className="mb-4" />
 
@@ -26,8 +28,8 @@ export const Signup = () => {
             <Input type="password" placeholder="Password" />
 
             {/* {Gender and birthday} */}
-            <div className="flex gap-4">
-              <Input type="date" />
+            <Input className="text-[#606770]" type="date" value="2017-06-01" />
+            <div className="flex gap-4 ">
               <label className={radioInputClass}>
                 <input type="radio" name="gender" value="male" /> Male
               </label>
@@ -37,7 +39,13 @@ export const Signup = () => {
             </div>
 
             {/* {Signup Button} */}
-            <Button className="bg-[#36A420] text-white w-1/2 mx-auto mt-5 font-bold">Sign Up</Button>
+            <Button className="bg-[#36A420] text-white w-full mx-auto mt-5 font-bold">Sign Up</Button>
+            <Button className="bg-[#3F7EE8] text-white w-full mx-auto font-bold flex items-center justify-center gap-5">
+              <FcGoogle className="bg-white h-6 w-6 rounded-full p-1" /> Sign Up with Google
+            </Button>
+            <Button className="bg-[#3F7EE8] text-white w-full mx-auto font-bold flex items-center justify-center gap-5">
+              <FaFacebookF className="text-[#3F7EE8] bg-white h-6 w-6 rounded-full p-1" /> Sign Up with Facebook
+            </Button>
             <p className="text-[#1877f2] cursor-pointer" onClick={() => path("/login")}>
               Already have any account?
             </p>

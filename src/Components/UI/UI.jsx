@@ -8,5 +8,5 @@ export const Button = (props) => {
 };
 
 export const Input = (props) => {
-  return <input className={`${props.className} w-full border-[1px] border-[#ccd0d5] py-1 px-3 rounded placeholder:text-[#606770]`} type={props.type} placeholder={props.placeholder} onChange={props.onChange} />;
+  return <input className={`${props.className} w-full border-[1px] border-[#ccd0d5] py-1 px-3 rounded placeholder:text-[#606770]`} type={props.type} value={props.value} placeholder={props.placeholder} onChange={props.onChange} />;
 };
