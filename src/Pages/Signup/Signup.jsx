@@ -3,17 +3,21 @@ import { useNavigate } from "react-router-dom";
 import { Input, Button } from "../../Components/UI/UI";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebookF } from "react-icons/fa";
+import useFirebase from "../../Hooks/useFirebase";
 
 export const Signup = () => {
   const path = useNavigate();
   const radioInputClass = "w-full border-[1px] border-[#ccd0d5] py-1 px-3 rounded";
+
+  const { handleSigninWithGoogle } = useFirebase();
+
   return (
     <section className="min-h-screen bg-[#F0F2F5] flex justify-center items-center">
       <div className="w-fit flex flex-col text-center p-5">
         <h1 className="text-[#1877F2] font-bold md:text-6xl text-5xl font-mono md:mb-10 mb-5">facebook</h1>
 
         {/* {form Container} */}
-        <form className="bg-white p-5 rounded-lg shadow-lg">
+        <div className="bg-white p-5 rounded-lg shadow-lg">
           <h2 className="md:text-4xl text-2xl mb-2">Create a new account</h2>
           <p className="text-[#606770] mb-4">It's quick and easy</p>
           <hr className="mb-4" />
@@ -40,7 +44,7 @@ export const Signup = () => {
 
             {/* {Signup Button} */}
             <Button className="bg-[#36A420] text-white w-full mx-auto mt-5 font-bold">Sign Up</Button>
-            <Button className="bg-[#3F7EE8] text-white w-full mx-auto font-bold flex items-center justify-center gap-5">
+            <Button className="bg-[#3F7EE8] text-white w-full mx-auto font-bold flex items-center justify-center gap-5" onClick={handleSigninWithGoogle}>
               <FcGoogle className="bg-white h-6 w-6 rounded-full p-1" /> Sign Up with Google
             </Button>
             <Button className="bg-[#3F7EE8] text-white w-full mx-auto font-bold flex items-center justify-center gap-5">
@@ -50,7 +54,7 @@ export const Signup = () => {
               Already have any account?
             </p>
           </div>
-        </form>
+        </div>
       </div>
     </section>
   );
